@@ -40,8 +40,12 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Use the GNOME desktop enviroment and the gdm display manager
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+
+  # Use the KDE/Plasma desktop enviroment and the sddm display manager
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -63,6 +67,9 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hannah = {
@@ -93,6 +100,7 @@
     neofetch
     pfetch
     gnome.gnome-tweaks
+    gnome.gnome-shell-extensions
     xorg.xkill
     psmisc
   ];
