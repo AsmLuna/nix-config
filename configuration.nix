@@ -82,6 +82,11 @@
       gamemode
       mangohud
       gzdoom
+      element-desktop
+      unrar
+      p7zip
+      unzip
+      wine
     ];
   };
 
@@ -94,7 +99,10 @@
     wget
     xfce.mousepad
     neofetch
+    pfetch
     gnome.gnome-tweaks
+    xorg.xkill
+    psmisc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
