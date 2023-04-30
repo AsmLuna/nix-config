@@ -40,12 +40,12 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Use the GNOME desktop enviroment and the gdm display manager
-  #services.xserver.desktopManager.gnome.enable = true;
-  #services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Use the KDE/Plasma desktop enviroment and the sddm display manager
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  #services.xserver.displayManager.sddm.enable = true;
+  #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -71,6 +71,8 @@
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
+  programs.gamemode.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hannah = {
     isNormalUser = true;
@@ -78,7 +80,6 @@
     packages = with pkgs; [
       firefox
       discord
-      gamemode
       mangohud
       gzdoom
       element-desktop
